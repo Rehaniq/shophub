@@ -19,6 +19,10 @@ app.use("/api/products", productRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/orders", orderRoutes);
 
+app.get("/api/health", (req, res) => {
+  res.json({ status: "ok", message: "ShopHub API is running" });
+});
+
 
 
 const PORT = process.env.PORT || 5000;
