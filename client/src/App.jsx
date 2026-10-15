@@ -7,6 +7,7 @@ import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import OrderSuccess from "./pages/OrderSuccess.jsx";
+import Orders from "./pages/Orders.jsx";
 
 export default function App() {
   return (
@@ -24,6 +25,14 @@ export default function App() {
           element={
             <ProtectedRoute>
               <OrderSuccess />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/orders"
+          element={
+            <ProtectedRoute>
+              <Orders />
             </ProtectedRoute>
           }
         />

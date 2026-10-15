@@ -14,6 +14,12 @@ export default function OrderSuccess() {
         <Link to="/" className="btn btn-link">
           Continue shopping
         </Link>
+        <Link to="/orders" className="btn btn-link">
+          View my orders
+        </Link>{" "}
+        <Link to="/" className="btn btn-link">
+          Continue shopping
+        </Link>
       </div>
     </div>
   );

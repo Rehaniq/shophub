@@ -23,6 +23,9 @@ export default function Navbar() {
           {!loading &&
             (user ? (
               <>
+                <Link to="/orders" className="nav-link">
+                  Orders
+                </Link>
                 <span className="nav-user">Hi, {user.name.split(" ")[0]}</span>
                 <button className="link-button" onClick={handleLogout}>
                   Log out
