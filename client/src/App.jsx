@@ -5,6 +5,8 @@ import ProductPage from "./pages/ProductPage.jsx";
 import Cart from "./pages/Cart.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import OrderSuccess from "./pages/OrderSuccess.jsx";
 
 export default function App() {
   return (
@@ -17,6 +19,14 @@ export default function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route
+          path="/order-success/:id"
+          element={
+            <ProtectedRoute>
+              <OrderSuccess />
+            </ProtectedRoute>
+          }
+        />
         <Route path="*" element={<p className="message">Page not found.</p>} />
       </Routes>
     </>

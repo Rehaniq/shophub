@@ -451,3 +451,39 @@ input[type="search"] {
     display: none;
   }
 }
+
+/* Checkout */
+.cart-error {
+  margin-top: 16px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #fee2e2;
+  text-align: left;
+}
+
+.success-card {
+  max-width: 480px;
+  margin: 40px auto;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 40px 28px;
+}
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: #dcfce7;
+  color: #16a34a;
+  font-size: 2rem;
+  line-height: 64px;
+}
+
+.btn-link {
+  display: inline-block;
+  margin-top: 12px;
+  text-decoration: none;
+}
