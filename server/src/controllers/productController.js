@@ -117,7 +117,13 @@ export const deleteProduct = async (req, res) => {
     }
     res.json({ message: "Product deleted" });
   } catch (err) {
+    if (err.code === "23503") {
+      return res
+        .status(409)
+        .json({ message: "Product is part of existing orders and can't be deleted" });
+    }
     console.error(err);
     res.status(500).json({ message: "Server error" });
+
   }
 };
