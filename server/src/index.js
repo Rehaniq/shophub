@@ -9,25 +9,17 @@ import orderRoutes from "./routes/orderRoutes.js";
 
 const app = express();
 
-app.use(cors());
+const allowedOrigins = (process.env.CLIENT_URL || "http://localhost:5173")
+  .split(",")
+  .map((url) => url.trim());
+
+app.use(cors({ origin: allowedOrigins }));
 app.use(express.json());
 app.use("/api/products", productRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/orders", orderRoutes);
 
-app.get("/api/health", (req, res) => {
-  res.json({ status: "ok", message: "ShopHub API is running" });
-});
 
-app.get("/api/db-test", async (req, res) => {
-  try {
-    const result = await pool.query("SELECT COUNT(*) FROM products");
-    res.json({ connected: true, products: result.rows[0].count });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ connected: false, error: err.message });
-  }
-});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
