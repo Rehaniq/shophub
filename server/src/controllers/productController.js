@@ -127,3 +127,16 @@ export const deleteProduct = async (req, res) => {
 
   }
 };
+
+// GET /api/products/categories
+export const getCategories = async (req, res) => {
+  try {
+    const result = await pool.query(
+      "SELECT DISTINCT category FROM products WHERE category IS NOT NULL ORDER BY category"
+    );
+    res.json(result.rows.map((row) => row.category));
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
+};
