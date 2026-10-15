@@ -23,6 +23,11 @@ export default function Navbar() {
           {!loading &&
             (user ? (
               <>
+                {user.role === "admin" && (
+                  <Link to="/admin" className="nav-link">
+                    Admin
+                  </Link>
+                )}
                 <Link to="/orders" className="nav-link">
                   Orders
                 </Link>
